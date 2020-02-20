@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Infra
+﻿namespace Abc.Infra
 {
     public class Class1
     {

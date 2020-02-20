@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Domain
+﻿namespace Abc.Domain
 {
     public class Class1
     {

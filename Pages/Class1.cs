@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pages
+﻿namespace Abc.Pages
 {
     public class Class1
     {
