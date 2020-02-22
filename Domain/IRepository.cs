@@ -1,6 +1,6 @@
 ﻿namespace Abc.Domain
 {
-    public class Class1
+    public interface IRepository
     {
     }
 }
