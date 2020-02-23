@@ -1,39 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Facade.Quantity;
-using Soft.Data;
+using Abc.Pages.Quantity;
+using Abc.Domain.Quantity;
+using Abc.Facade.Quantity;
 
 namespace Soft
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : MeasuresPage
     {
-        private readonly Soft.Data.ApplicationDbContext _context;
-
-        public DetailsModel(Soft.Data.ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public MeasureView MeasureView { get; set; }
+        public DetailsModel(IMeasureRepository r) : base(r) { }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound(); 
+             
+            Item = MeasureViewFactory.Create(await data.Get(id));
 
-            MeasureView = await _context.Measures.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (MeasureView == null)
-            {
-                return NotFound();
-            }
+            if (Item == null) return NotFound();
+        
             return Page();
         }
     }

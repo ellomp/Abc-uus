@@ -2,6 +2,7 @@
 using Facade.Quantity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace Abc.Pages.Quantity
 {
@@ -13,5 +14,7 @@ namespace Abc.Pages.Quantity
 
         [BindProperty]
         public MeasureView Item { get; set; }
+        public IList<MeasureView> Items { get; set; }
+
     }
 }
