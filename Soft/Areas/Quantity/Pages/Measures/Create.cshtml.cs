@@ -1,29 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Facade.Quantity;
-using Soft.Data;
+using Abc.Facade.Quantity;
+using Abc.Domain.Quantity;
 
 namespace Soft
 {
     public class CreateModel : PageModel
     {
-        private readonly Soft.Data.ApplicationDbContext _context;
+        private readonly IMeasureRepository data;
 
-        public CreateModel(Soft.Data.ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        public CreateModel(IMeasureRepository r) => data = r; // täpselt sama kui pakka data=r lihtsalt selle meetodi sisse. siin lihtslt lühemalt.
 
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
-
+        public IActionResult OnGet() => Page(); //sama kui panna siia meetodi sisse return Page();
+  
         [BindProperty]
         public MeasureView MeasureView { get; set; }
 
@@ -31,13 +23,9 @@ namespace Soft
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
-            _context.Measures.Add(MeasureView);
-            await _context.SaveChangesAsync();
+            await data.Update(MeasureViewFactory.Create(MeasureView)); 
 
             return RedirectToPage("./Index");
         }
