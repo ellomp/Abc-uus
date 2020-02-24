@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Facade.Quantity;
 using Abc.Pages.Quantity;
@@ -11,11 +12,20 @@ namespace Soft
     {
         public IndexModel(IMeasureRepository r) : base(r) { }
  
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
+            //esimesed 2 rid selleks et saaks sorteerida measuerite nimekirja browseris
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+             db.SortOrder = sortOrder;
             var l = await data.Get();
             Items = new List<MeasureView>();
             foreach(var e in l) { Items.Add(MeasureViewFactory.Create(e)); }
         }
+
+        public string DateSort { get; set; }
+
+        public string NameSort { get; set; }
     }
 }
+ 

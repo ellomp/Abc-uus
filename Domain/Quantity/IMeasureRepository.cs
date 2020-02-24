@@ -5,5 +5,6 @@ namespace Abc.Domain.Quantity
 {
     public interface IMeasureRepository : IRepository<Measure>
     {
+
     }
 }

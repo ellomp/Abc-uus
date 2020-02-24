@@ -10,19 +10,24 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Name)
-            </th>
+<table class="table"> @*tabel*@
+    <thead> @*tabeli päis*@
+        <tr> @*tabel row//tabeli rida*@
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].Code)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Items[0].Name)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Items[0].Definition)
             </th>
             <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
+                </a>
                 @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
             </th>
             <th>

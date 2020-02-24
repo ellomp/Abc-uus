@@ -10,8 +10,6 @@ namespace Abc.Domain.Common
         Task Delete(string Id);
         Task Add(T obj);
         Task Update(T obj);
-
-
-
+        string SortOrder { get; set; }
     }
 }
