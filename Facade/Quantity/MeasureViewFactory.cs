@@ -2,8 +2,6 @@
 using Abc.Domain.Quantity;
 using Facade.Quantity;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Abc.Facade.Quantity
 {

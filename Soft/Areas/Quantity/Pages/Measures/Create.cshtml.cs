@@ -1,8 +1,6 @@
 ﻿
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Facade.Quantity;
 using Abc.Facade.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;

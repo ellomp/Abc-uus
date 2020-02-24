@@ -1,5 +1,4 @@
 ﻿using Abc.Data.Common;
-using Abc.Data.Quantity;
 
 
 namespace Abc.Domain.Common

@@ -1,8 +1,5 @@
 ﻿using Abc.Data.Quantity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Abc.Infra.Quantity
 {

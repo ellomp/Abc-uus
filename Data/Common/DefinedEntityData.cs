@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Abc.Data.Common
+﻿namespace Abc.Data.Common
 {
     public class DefinedEntityData : NamedEntityData
     {
