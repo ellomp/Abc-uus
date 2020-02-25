@@ -19,7 +19,8 @@ namespace Abc.Pages.Extensions
 
         internal static List<object> htmlString<TClassType, TPropertyType>(
             IHtmlHelper<TClassType> htmlHelper, 
-            Expression<Func<TClassType, TPropertyType>> expression) {
+            Expression<Func<TClassType, TPropertyType>> expression) 
+        {
             return new List<object>() {
                 new HtmlString("<dt class=\"col-sm-2\">"),
                 htmlHelper.DisplayNameFor(expression),

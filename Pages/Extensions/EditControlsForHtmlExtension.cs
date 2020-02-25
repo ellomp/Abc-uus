@@ -17,28 +17,20 @@ using System.Collections.Generic;
 
         internal static List<object> htmlString<TClassType, TPropertyType>(
             IHtmlHelper<TClassType> htmlHelper, Expression<Func<TClassType, 
-                TPropertyType>> expression) {
+                TPropertyType>> expression) 
+        {
             return new List<object> {
                 new HtmlString("<div class=\"form-group\">"),
                 htmlHelper.LabelFor(expression, new {@class = "text-dark"}),
-                htmlHelper.EditorFor(expression,
-                    new {htmlAttributes = new {@class = "form-control"}}),
+                htmlHelper.EditorFor(expression, new {htmlAttributes = new {@class = "form-control"}}),
                 htmlHelper.ValidationMessageFor(expression, "", new {@class = "text-danger"}),
-                new HtmlString("</div")
+                new HtmlString("</div>")
             };
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
-} 
- 
+}
+ //<div class="form-group">
+ //    <label asp-for="Movie.Title" class="control-label"></label>
+ //    <input asp-for="Movie.Title" class="form-control" />
+ //    <span asp-validation-for="Movie.Title" class="text-danger"></span>
+ //</div>

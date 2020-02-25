@@ -17,7 +17,7 @@ namespace Soft
             //esimesed 2 rid selleks et saaks sorteerida measuerite nimekirja browseris
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
-             db.SortOrder = sortOrder;
+            data.SortOrder = sortOrder;
             var l = await data.Get();
             Items = new List<MeasureView>();
             foreach(var e in l) { Items.Add(MeasureViewFactory.Create(e)); }

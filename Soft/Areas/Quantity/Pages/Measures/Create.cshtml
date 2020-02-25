@@ -12,11 +12,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post"> 
+        <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.EditControlsFor(model => model.Item.Id)
-            @Html.EditControlsFor(model => model.Item.Code)
             @Html.EditControlsFor(model => model.Item.Name)
+            @Html.EditControlsFor(model => model.Item.Code)
             @Html.EditControlsFor(model => model.Item.Definition)
             @Html.EditControlsFor(model => model.Item.ValidFrom)
             @Html.EditControlsFor(model => model.Item.ValidTo)
