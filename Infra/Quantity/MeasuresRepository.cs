@@ -3,18 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using System;
 using Abc.Data.Quantity;
 
 namespace Abc.Infra.Quantity
 {
     public class MeasuresRepository : IMeasureRepository
     {
-        private readonly QuantityDbContext db;
+        private readonly QuantityDbContext db; 
         public string SortOrder { get; set; }
 
         public string SearchString { get; set; }
-        //public string SearchString { get; set; }
+        public int PageSize { get; set; } = 1;
+        public int PageIndex { get; set; } = 1;
+        public bool HasNextPage { get; set; }
+        public bool HasPreviousPage { get; set; }
+
 
         public MeasuresRepository(QuantityDbContext c)
         {
@@ -37,8 +40,16 @@ namespace Abc.Infra.Quantity
 
         public async Task<List<Measure>> Get()
         {
-            var l = await createFiltered(createSorted()).ToListAsync();
+            var l = await createPaged(createFiltered(createSorted()));
+            HasNextPage = l.HasNextPage; //pihol on siil l asemel list
+            HasPreviousPage = l.HasPreviousPage; //sama
             return (l.Select(e => new Measure(e))).ToList(); //1. valid kõik 2. teeb ära Measure teisenduse 3. annan listi tagasi.
+        }
+
+        private async Task<PaginatedList<MeasureData>> createPaged(IQueryable<MeasureData> dataSet)
+        {
+            return await PaginatedList<MeasureData>.CreateAsync(
+                dataSet, PageIndex, PageSize);
         }
 
         private IQueryable<MeasureData> createFiltered(IQueryable<MeasureData> set)

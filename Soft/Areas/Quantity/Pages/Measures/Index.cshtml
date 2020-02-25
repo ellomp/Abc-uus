@@ -1,5 +1,5 @@
 ﻿@page
-@model Soft.IndexModel
+@model Abc.Soft.Areas.Quantity.Pages.Measures.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -23,33 +23,39 @@
 </form>
 
 
-<table class="table"> @*tabel*@
-    <thead> @*tabeli päis*@
-        <tr> @*tabel row//tabeli rida*@
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort">
-                    @Html.DisplayNameFor(model => model.Items[0].Name)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].Definition)
-            </th>
-            <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
-                    @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
-                </a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Items[0].ValidTo)
-            </th>
-            <th></th>
-        </tr>
+<table class="table">
+    @*tabel*@
+    <thead>
+    @*tabeli päis*@
+    <tr>
+        @*tabel row//tabeli rida*@
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+               asp-route-currentFilter="@Model.CurrentFilter">
+               @Html.DisplayNameFor(model => model.Items[0].Name)
+            </a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].Definition)
+        </th>
+        <th>
+            <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+               asp-route-currentFilter="@Model.CurrentFilter">
+               @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
+            </a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items[0].ValidTo)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Items) {
+    @foreach (var item in Model.Items)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -72,6 +78,25 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
