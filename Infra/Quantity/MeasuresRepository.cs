@@ -12,6 +12,10 @@ namespace Abc.Infra.Quantity
     {
         private readonly QuantityDbContext db;
         public string SortOrder { get; set; }
+
+        public string SearchString { get; set; }
+        //public string SearchString { get; set; }
+
         public MeasuresRepository(QuantityDbContext c)
         {
             db = c;
@@ -33,9 +37,19 @@ namespace Abc.Infra.Quantity
 
         public async Task<List<Measure>> Get()
         {
-            var l = await createSorted().ToListAsync();
+            var l = await createFiltered(createSorted()).ToListAsync();
             return (l.Select(e => new Measure(e))).ToList(); //1. valid kõik 2. teeb ära Measure teisenduse 3. annan listi tagasi.
+        }
 
+        private IQueryable<MeasureData> createFiltered(IQueryable<MeasureData> set)
+        {
+            if (string.IsNullOrEmpty(SearchString)) return set;
+            return set.Where(s => s.Name.Contains(SearchString)
+                                  || s.Code.Contains(SearchString)
+                                  || s.Id.Contains(SearchString)
+                                  || s.Definition.Contains(SearchString)
+                                  || s.ValidFrom.ToString().Contains(SearchString)//et selle järgi saaks filtreerida peame  enne tegema stringiks ses tsee on tegelikult datetime tüüpi muutuja
+                                  || s.ValidTo.ToString().Contains(SearchString));
         }
 
         private IQueryable<MeasureData> createSorted()
