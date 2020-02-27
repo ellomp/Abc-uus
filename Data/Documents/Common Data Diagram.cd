@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Abc.Data.Quantity.SystemOfUnitsData">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="4.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\SystemOfUnitsData.cs</FileName>
@@ -15,14 +15,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Abc.Data.Money.CurrencyData" Collapsed="true">
-    <Position X="0.75" Y="2.75" Width="1.5" />
+    <Position X="0.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Money\CurrencyData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Abc.Data.Quantity.UnitData" Collapsed="true">
-    <Position X="2.5" Y="2.75" Width="1.5" />
+    <Position X="2.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\UnitData.cs</FileName>
@@ -33,13 +33,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\NamedEntityData.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Abc.Data.Common.UniqueEntityData" Collapsed="true">
-    <Position X="4.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Common\UniqueEntityData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Abc.Data.Common.PeriodData" Collapsed="true">
@@ -56,8 +49,15 @@
       <FileName>Quantity\UnitFactorData.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Abc.Data.Common.UniqueEntityData" Collapsed="true">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\UniqueEntityData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Abc.Data.Quantity.MeasureData" Collapsed="true">
-    <Position X="4" Y="2.75" Width="1.5" />
+    <Position X="6.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\MeasureData.cs</FileName>

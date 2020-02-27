@@ -2,7 +2,7 @@
 
 namespace Abc.Data.Money
 {
-    class CurrencyData : DefinedEntityData
+    public sealed class CurrencyData : DefinedEntityData
     {
     }
 }
