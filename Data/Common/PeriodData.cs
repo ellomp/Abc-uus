@@ -1,5 +1,4 @@
 ﻿using System;
-using Abc.Data.Quantity;
 
 namespace Abc.Data.Common
 {
