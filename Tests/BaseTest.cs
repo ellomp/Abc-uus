@@ -19,5 +19,15 @@ namespace Tests
         {
             Assert.AreEqual(typeof(TBaseClass), type.BaseType);
         }
+        protected static void IsNullableProperty<T>(Func<T> get, Action<T> set, Func<T> rnd)
+            //get set ja random on funktsioonid
+        {
+            var d = rnd();
+            Assert.AreNotEqual(d, get());
+            set(d);
+            Assert.AreEqual(d, get());
+            //set(null);
+            //Assert.IsNull(get());
+        }
     }
 }

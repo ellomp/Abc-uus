@@ -20,10 +20,7 @@ namespace Tests.Data.Common
         [TestMethod]
         public void DefinitionTest()
         {
-            var s = "AAAAA";
-            Assert.AreNotEqual(s, obj.Definition);
-            obj.Definition = s;
-            Assert.AreEqual(s, obj.Definition);
+            IsNullableProperty(()=>obj.Definition, x =>obj.Definition = x, () =>"aaaaa");
         }
     }
 } 
