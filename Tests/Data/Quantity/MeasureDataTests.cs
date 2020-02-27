@@ -5,8 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data.Quantity
 {
     [TestClass]
-
-    public class MeasureDataTests : SealedClassTest<MeasureData, DefinedEntityData>     //Käivita kõik minu tehtud measuredata testid ja käivita kõik baseclassi testid nendel kahel tingimusel.
+    public class MeasureDataTests : SealedClassTest<MeasureData, DefinedEntityData>     
     {
     }
 }

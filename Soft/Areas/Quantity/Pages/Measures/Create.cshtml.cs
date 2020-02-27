@@ -1,11 +1,10 @@
-﻿
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Abc.Facade.Quantity;
+﻿using System.Threading.Tasks;
 using Abc.Domain.Quantity;
+using Abc.Facade.Quantity;
 using Abc.Pages.Quantity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Soft
+namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
     public class CreateModel : MeasuresPage
     {

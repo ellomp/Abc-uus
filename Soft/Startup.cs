@@ -2,12 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Soft.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Abc.Infra.Quantity;
 using Abc.Domain.Quantity;
+using Abc.Soft.Data;
 
 namespace Abc.Soft
 {
