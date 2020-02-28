@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{BD3BAD0C-CA29-40B0-8230-7EACE4DDB28F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aids", "Aids\Aids.csproj", "{79F570AE-D3B9-423E-B4A5-872049508A5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{BD3BAD0C-CA29-40B0-8230-7EACE4DDB28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3BAD0C-CA29-40B0-8230-7EACE4DDB28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3BAD0C-CA29-40B0-8230-7EACE4DDB28F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
