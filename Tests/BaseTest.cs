@@ -1,4 +1,5 @@
 using System;
+using Abc.Aids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
@@ -22,12 +23,19 @@ namespace Tests
         protected static void IsNullableProperty<T>(Func<T> get, Action<T> set)
             //get set ja random on funktsioonid
         {
-            var d = rnd();
+            IsProperty(get, set);
+            var d = (T)GetRandom.Value(typeof(T));
+            set(default);
+            Assert.IsNull(get());
+        }
+
+        protected static void IsProperty<T>(Func<T> get, Action<T> set)
+            //get set ja random on funktsioonid
+        {
+            var d = (T)GetRandom.Value(typeof(T));
             Assert.AreNotEqual(d, get());
             set(d);
             Assert.AreEqual(d, get());
-            //set(null);
-            //Assert.IsNull(get());
         }
     }
 }

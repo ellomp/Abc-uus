@@ -23,13 +23,13 @@ namespace Tests.Data.Common
         {
             //mul on funkt ja see f annab mulle kttte valid fromi ja ss on mu funt 
             //et kui ma selle argumendi x annan siis se omastatakse validfrom väärtusele.
-            IsNullableProperty(() => obj.ValidFrom, x => obj.ValidFrom = x, () => DateTime.Now);
+            IsNullableProperty(() => obj.ValidFrom, x => obj.ValidFrom = x);
         }
 
         [TestMethod]
         public void ValidToTest()
         {
-            IsNullableProperty(() => obj.ValidTo, x => obj.ValidTo = x, () => DateTime.Now);
+            IsNullableProperty(() => obj.ValidTo, x => obj.ValidTo = x);
 
         }
 

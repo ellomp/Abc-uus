@@ -129,7 +129,7 @@ namespace Abc.Aids {
             if (t == typeof(uint)) return UInt32();
             if (t == typeof(ulong)) return UInt64();
             if (t == typeof(sbyte)) return Int8();
-            if (t == typeof(short)) return Int16();
+            if (t == typeof(short)) return Int16(); 
             if (t == typeof(int)) return Int32();
             if (t == typeof(long)) return Int64();
             if (t == typeof(TimeSpan)) return TimeSpan();
