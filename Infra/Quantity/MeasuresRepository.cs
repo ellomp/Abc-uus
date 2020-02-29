@@ -7,18 +7,12 @@ using Abc.Data.Quantity;
 
 namespace Abc.Infra.Quantity
 {
-    public class MeasuresRepository : IMeasureRepository
+    public class MeasuresRepository : PaginatedRepository<Measure>, IMeasureRepository
     {
         private readonly QuantityDbContext db; 
-        public string SortOrder { get; set; }
 
-        public string SearchString { get; set; }
         public int PageSize { get; set; } = 1;
-        public int PageIndex { get; set; } = 1;
-        public bool HasNextPage { get; set; }
-        public bool HasPreviousPage { get; set; }
-
-
+   
         public MeasuresRepository(QuantityDbContext c)
         {
             db = c;
