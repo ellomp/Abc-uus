@@ -1,4 +1,3 @@
-using System;
 using Abc.Data.Common;
 using Abc.Data.Quantity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,14 +12,13 @@ namespace Tests.Data.Quantity
         {
             IsProperty(() => obj.Factor, x => obj.Factor = x);
         }
-
-       
-
+        
         [TestMethod]
         public void systemOfUnitsIdTest()
         {
             IsNullableProperty(() => obj.SystemOfUnitsId, x => obj.SystemOfUnitsId = x);
         }
+
         [TestMethod]
         public void UnitIdTest()
         {

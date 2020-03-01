@@ -4,6 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Abc.Domain</AssemblyName>
     <RootNamespace>Abc.Domain</RootNamespace>
+    <ApplicationIcon />
+    <Win32Resource />
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

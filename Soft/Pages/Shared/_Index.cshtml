@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "_Layout"; //kasuta seda Layouti
+    ViewData["Title"] = Model.PageTitle; //ära siia oane otse nime, pane muutuja et saaks mudida ja muutuda vastavalt lk-le.
+}
+
+
+    <p>
+        <h1>@ViewData["Title"]</h1>
+
+        @RenderSection("Create") @*enne oli nupp nüüd on createscion*@
+    </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-inline">
+        <p>
+            Find by:
+            &nbsp;
+            <input class="form-control" type="text" name="SearchString" value="@Model.SearchString" />
+            &nbsp;
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            &nbsp;
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<p />
+    @RenderBody()
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div class="form-inline">
+    <a asp-page="./Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="1"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       class="btn btn-primary @prevDisabled">
+        @*tähendab et esimesel lehel olles sa ei saa veel eespoolsemale minna*@
+        First
+    </a>
+    &nbsp;
+    <a asp-page="./Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       class="btn btn-primary @prevDisabled">
+        Previous
+    </a>
+    &nbsp;
+    Page @Model.PageIndex of @Model.TotalPages  @*ütlen mitmendal lehel olen ja palju neid pldse kokku on*@
+    &nbsp;
+    <a asp-page="./Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       class="btn btn-primary @nextDisabled">
+        Next
+    </a>
+    &nbsp;
+    <a asp-page="./Index"
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@(Model.TotalPages)"
+       asp-route-currentFilter="@Model.CurrentFilter"
+       class="btn btn-primary @nextDisabled">
+        Last
+    </a>
+
+</div>
