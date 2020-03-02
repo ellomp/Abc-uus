@@ -49,7 +49,7 @@ namespace Abc.Infra
 
         public async Task Update(TDomain obj)
         {
-            db.Attach((obj.Data).State = EntityState.Modified);
+            db.Attach(obj.Data).State = EntityState.Modified;
 
             try
             {

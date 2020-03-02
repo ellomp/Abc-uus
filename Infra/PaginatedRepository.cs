@@ -11,7 +11,7 @@ namespace Abc.Infra
         public int PageIndex { get; set; }
         public bool HasNextPage { get; set; }
         public bool HasPreviousPage { get; set; }
-        public int PageSize { get; set; } = 12; //mitu erinevat nt aeg, mass jne tüüpi korraga lehel nähtav on
+        public int PageSize { get; set; } = 12; //mitu erinevatc nt aeg, mass jne tüüpi korraga lehel nähtav on
 
         protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
