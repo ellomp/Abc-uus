@@ -13,12 +13,13 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
         public async Task OnGetAsync(string sortOrder,
             string currentFilter, string searchString, int? pageIndex)
         {
+            sortOrder = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : sortOrder;
             CurrentSort = sortOrder;
-            //esimesed 2 rid selleks et saaks sorteerida measuerite nimekirja browseris
-            NameSort = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            NameSort = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : "Name";
+            NameSort = sortOrder=="Name" ? "Name_desc" : "Name";
             IdSort = sortOrder == "Id" ? "Id_desc" : "Id";
             CodeSort = sortOrder == "Code" ? "Code_desc" : "Code";
-            DefinitionSort = sortOrder == "Definition" ? "definition_desc" : "Definition";
+            DefinitionSort = sortOrder == "Definition" ? "Definition_desc" : "Definition";
             ValidFromSort = sortOrder == "ValidFrom" ? "ValidFrom_desc" : "ValidFrom";
             ValidToSort = sortOrder == "ValidTo" ? "ValidTo_desc" : "ValidTo";
 
