@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Abc.Data.Common;
+﻿using Abc.Data.Common;
 using Abc.Domain.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Abc.Infra
 {
@@ -33,10 +33,34 @@ namespace Abc.Infra
             dbSet.Remove(d);
             await db.SaveChangesAsync();
         }
-        public async virtual Task<List<TDomain>> Get()
+
+
+
+
+        public virtual async Task<List<TDomain>> Get()
         {
-            throw new NotImplementedException();
+            var query = createSqlQuery(); //teen sql query, ei tea kuidas ag ateeme
+            var set = await runSqlQueryAsync(query); //küsin db andmed ja vastavalt sellele queryle  mida teinud olem
+            
+            return toDomainObjectsList(set); //nii, vii see kõik listi, mis ei ole andmeobj list vaid valdkonna obj list
         }
+        internal List<TDomain> toDomainObjectsList(List<TData> set) => set.Select(toDomainObject).ToList();
+
+        protected internal abstract TDomain toDomainObject(TData periodData);
+        
+        internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
+        
+        protected internal virtual IQueryable<TData> createSqlQuery()
+        {
+            var query = from s in dbSet select s;
+            return query;
+        }
+
+
+
+
+
+
         public async Task<TDomain> Get(string id)
         {
             if (id is null) return new TDomain();

@@ -4,8 +4,8 @@
     {
         int PageIndex { get; set; }
         int PageSize { get; set; }
-
-        bool HasNextPage { get; set; }
-        bool HasPreviousPage { get; set; }
+        int TotalPages { get; }
+        bool HasNextPage { get; }
+        bool HasPreviousPage { get; }
     }
 }

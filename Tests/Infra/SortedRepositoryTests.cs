@@ -25,6 +25,9 @@ namespace Abc.Tests.Infra
             {
             }
 
+
+            protected internal override Measure toDomainObject(MeasureData d) => new Measure(d);
+
             protected override async Task<MeasureData> getData(string id)
             {
                 await Task.CompletedTask;
@@ -59,22 +62,22 @@ namespace Abc.Tests.Infra
             void test(IQueryable<MeasureData> d, string sortOrder)
             {
                 obj.SortOrder = sortOrder + obj.DescendingString;
-                var set = obj.SetSorting(d);
+                var set = obj.AddSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString()
                     .Contains($"Abc.Data.Quantity.MeasureData]).OrderByDescending(Param_0 => Convert(Param_0.{sortOrder}, Object))"));
                 obj.SortOrder = sortOrder;
-                set = obj.SetSorting(d);
+                set = obj.AddSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString().Contains($"Abc.Data.Quantity.MeasureData]).OrderBy(Param_0 => Convert(Param_0.{sortOrder}, Object))"));
             }
 
-            Assert.IsNull(obj.SetSorting(null));
+            Assert.IsNull(obj.AddSorting(null));
             IQueryable<MeasureData> data = obj.dbSet;
             obj.SortOrder = null;
-            Assert.AreEqual(data, obj.SetSorting(data));
+            Assert.AreEqual(data, obj.AddSorting(data));
             test(data, GetMember.Name<MeasureData>(x => x.Id));
             test(data, GetMember.Name<MeasureData>(x => x.Code));
             test(data, GetMember.Name<MeasureData>(x => x.Name));
@@ -181,21 +184,21 @@ namespace Abc.Tests.Infra
             void test(IQueryable<MeasureData> d, Expression<Func<MeasureData, object>> e, string expected)
             {
                 obj.SortOrder = GetRandom.String() + obj.DescendingString;
-                var set = obj.SetOrderBy(d, e);
+                var set = obj.AddOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString()
                     .Contains($"Abc.Data.Quantity.MeasureData]).OrderByDescending({expected})"));
                 obj.SortOrder = GetRandom.String();
-                set = obj.SetOrderBy(d, e);
+                set = obj.AddOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString().Contains($"Abc.Data.Quantity.MeasureData]).OrderBy({expected})"));
             }
 
-            Assert.IsNull(obj.SetOrderBy(null, null));
+            Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<MeasureData> data = obj.dbSet;
-            Assert.AreEqual(data, obj.SetOrderBy(data, null));
+            Assert.AreEqual(data, obj.AddOrderBy(data, null));
             test(data, x => x.Id, "x => x.Id");
             test(data, x => x.Code, "x => x.Code");
             test(data, x => x.Name, "x => x.Name");
