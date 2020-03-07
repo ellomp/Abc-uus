@@ -18,9 +18,9 @@ namespace Abc.Infra
         {
         }
 
-        protected internal override IQueryable<TData> createSqlQuery()
+        protected internal override IQueryable<TData> CreateSqlQuery()
         {
-            var query = base.createSqlQuery(); //võtan
+            var query = base.CreateSqlQuery(); //võtan
             query = AddSorting(query);//lisan
             return query;//tagastan
         }
@@ -71,8 +71,6 @@ namespace Abc.Infra
                 return query;
             }
         }
-
         internal bool IsDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
-        
     }
 }

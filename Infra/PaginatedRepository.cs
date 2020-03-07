@@ -24,25 +24,23 @@ namespace Abc.Infra
         {
             var count = GetItemsCount();
             var pages = CountTotalPages(count, pageSize);
-
             return pages;
         }
 
         internal int CountTotalPages(int count, in int pageSize)
         {
             return (int)Math.Ceiling(count / (double)pageSize);
-
         }
 
         internal int GetItemsCount()
         {
-            var query = base.createSqlQuery();
+            var query = base.CreateSqlQuery();
             return query.CountAsync().Result;
         }
 
-        protected internal override IQueryable<TData> createSqlQuery()
+        protected internal override IQueryable<TData> CreateSqlQuery()
         {
-            var query = base.createSqlQuery();
+            var query = base.CreateSqlQuery();
             query = AddSkipAndTake(query);
             return query;
         }
@@ -52,7 +50,6 @@ namespace Abc.Infra
             var q = query.Skip(
                     (PageIndex - 1) * PageSize)
                 .Take(PageSize);
-
             return q;
         }
     }

@@ -1,8 +1,5 @@
 ﻿ using Abc.Domain.Quantity;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+ using System.Linq;
 using Abc.Data.Quantity;
 
 namespace Abc.Infra.Quantity
@@ -27,3 +24,4 @@ namespace Abc.Infra.Quantity
         }
     }
 }
+ 

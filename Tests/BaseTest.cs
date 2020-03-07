@@ -1,8 +1,5 @@
 using System;
 using Abc.Aids;
-using Abc.Data.Quantity;
-using Abc.Domain.Quantity;
-using Abc.Infra;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Abc.Tests

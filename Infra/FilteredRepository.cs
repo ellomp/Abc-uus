@@ -3,7 +3,6 @@ using Abc.Data.Common;
 using Abc.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Abc.Infra
 {
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, ISearching
@@ -16,9 +15,9 @@ namespace Abc.Infra
         {
         }
 
-        protected internal override IQueryable<TData> createSqlQuery()
+        protected internal override IQueryable<TData> CreateSqlQuery()
         {
-            var query = base.createSqlQuery();
+            var query = base.CreateSqlQuery();
             query = AddFiltering(query);
 
             return query;

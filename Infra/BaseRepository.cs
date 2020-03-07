@@ -33,13 +33,9 @@ namespace Abc.Infra
             dbSet.Remove(d);
             await db.SaveChangesAsync();
         }
-
-
-
-
         public virtual async Task<List<TDomain>> Get()
         {
-            var query = createSqlQuery(); //teen sql query, ei tea kuidas ag ateeme
+            var query = CreateSqlQuery(); //teen sql query, ei tea kuidas ag ateeme
             var set = await runSqlQueryAsync(query); //küsin db andmed ja vastavalt sellele queryle  mida teinud olem
             
             return toDomainObjectsList(set); //nii, vii see kõik listi, mis ei ole andmeobj list vaid valdkonna obj list
@@ -50,7 +46,7 @@ namespace Abc.Infra
         
         internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
         
-        protected internal virtual IQueryable<TData> createSqlQuery()
+        protected internal virtual IQueryable<TData> CreateSqlQuery()
         {
             var query = from s in dbSet select s;
             return query;
