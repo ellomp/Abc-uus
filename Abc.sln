@@ -22,7 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{BD3BAD0C-CA29-40B0-8230-7EACE4DDB28F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aids", "Aids\Aids.csproj", "{79F570AE-D3B9-423E-B4A5-872049508A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aids", "Aids\Aids.csproj", "{79F570AE-D3B9-423E-B4A5-872049508A5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{92D65606-7417-45BA-9499-502851E6503C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79F570AE-D3B9-423E-B4A5-872049508A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D65606-7417-45BA-9499-502851E6503C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D65606-7417-45BA-9499-502851E6503C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D65606-7417-45BA-9499-502851E6503C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D65606-7417-45BA-9499-502851E6503C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
